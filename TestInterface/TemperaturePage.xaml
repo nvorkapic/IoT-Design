@@ -7,18 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FF193219">
+    <Grid Background="#FF193219" Height="480" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800" IsRightTapEnabled="False" IsHoldingEnabled="False">
         <Button x:Name="btnDisplayGraph" Content="Display Graph [Day / Month / Year]]" Margin="10,115,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
         <Button x:Name="btnMUnit" Content="Measurement Unit [°C / °F / K] " Margin="10,220,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" />
         <Button x:Name="btnBACK" Content="Return" Margin="10,370,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnBACK_Click"/>
         <Button x:Name="btnCurrentTemp" Content="Current Temperature [[-]00.00 °C]" Margin="10,10,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="329" Margin="348,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="442"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="399.076,265.491,0,0" TextWrapping="Wrap" Text="GRAPH GOES HERE" VerticalAlignment="Top" Height="48.758" Width="312" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-            <TextBlock.RenderTransform>
-                <CompositeTransform Rotation="-46.468"/>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock x:Name="textBlockTitle" Height="100" Margin="348,35,10,0" TextWrapping="Wrap" Text="PANGO" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="78" TextAlignment="Center" CharacterSpacing="300" SelectionHighlightColor="White"/>
+        <Rectangle x:Name="RectangleDiagram" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="329" Margin="348,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="442" DoubleTapped="RectangleDiagram_DoubleTapped"/>
+        <TextBlock x:Name="textBlockTitle" Height="100" Margin="348,35,10,0" TextWrapping="Wrap" Text="IDUN" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="78" TextAlignment="Center" CharacterSpacing="300" SelectionHighlightColor="White"/>
+        <Rectangle x:Name="DiagramBig" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="460" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="780" Visibility="Collapsed" DoubleTapped="DiagramBig_DoubleTapped"/>
 
     </Grid>
 </Page>

@@ -31,6 +31,21 @@ namespace TestInterface
         {
             this.Frame.Navigate(typeof(TemperaturePage), null);
         }
+
+        private void btnPressure_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(PressurePage), null);
+        }
+
+        private void btnHumidity_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HumidityPage), null);
+        }
+
+        private void btnStatus_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(StatusBar), null); 
+        }
     }
 
 }

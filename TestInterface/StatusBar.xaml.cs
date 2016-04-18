@@ -20,9 +20,9 @@ namespace TestInterface
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TemperaturePage : Page
+    public sealed partial class StatusBar : Page
     {
-        public TemperaturePage()
+        public StatusBar()
         {
             this.InitializeComponent();
         }
@@ -32,14 +32,9 @@ namespace TestInterface
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        private void RectangleDiagram_DoubleTapped (object sender, RoutedEventArgs e)
+        private void btnSetNrOfRuns_Click(object sender, RoutedEventArgs e)
         {
-            DiagramBig.Visibility = Visibility.Visible;            
-        }
-
-        private void DiagramBig_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            DiagramBig.Visibility = Visibility.Collapsed;
+            this.Frame.Navigate(typeof(statusBarSetting), null);
         }
     }
 }

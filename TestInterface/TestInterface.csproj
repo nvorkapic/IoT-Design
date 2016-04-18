@@ -95,10 +95,28 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HumidityPage.xaml.cs">
+      <DependentUpon>HumidityPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OnScreenKeyboard\KeyAssignmentSet.cs" />
+    <Compile Include="OnScreenKeyboard\KeyboardViewModel.cs" />
+    <Compile Include="OnScreenKeyboard\KeyModel.cs" />
+    <Compile Include="OnScreenKeyboard\OnScreenKeyboard.xaml.cs" />
+    <Compile Include="OnScreenKeyboard\RelayCommand.cs" />
+    <Compile Include="OnScreenKeyboard\ViewModel.cs" />
+    <Compile Include="PressurePage.xaml.cs">
+      <DependentUpon>PressurePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statusBarSetting.xaml.cs">
+      <DependentUpon>statusBarSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemperaturePage.xaml.cs">
       <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
@@ -125,9 +143,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HumidityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OnScreenKeyboard\OnScreenKeyboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PressurePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statusBarSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TemperaturePage.xaml">
       <SubType>Designer</SubType>

@@ -12,6 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI;
+using Windows.UI.Xaml.Media.Animation;
+using OnScreenKeyboard;
+using System.Text.RegularExpressions;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,26 +24,30 @@ namespace TestInterface
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TemperaturePage : Page
+    public sealed partial class statusBarSetting : Page
     {
-        public TemperaturePage()
+
+        public statusBarSetting()
         {
             this.InitializeComponent();
+            keyboard.RegisterTarget(textBoxNote);
+            keyboard.RegisterTarget(MaxServiceNr);
         }
 
         private void btnBACK_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage), null);
+            this.Frame.Navigate(typeof(StatusBar), null);
         }
 
-        private void RectangleDiagram_DoubleTapped (object sender, RoutedEventArgs e)
+        private void maxNr_GotFocus(object sender, RoutedEventArgs e)
         {
-            DiagramBig.Visibility = Visibility.Visible;            
+            MaxServiceNr.Text = "";
+            
         }
 
-        private void DiagramBig_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        private void NoteGotFocus(object sender, RoutedEventArgs e)
         {
-            DiagramBig.Visibility = Visibility.Collapsed;
+            textBoxNote.Text = "";
         }
     }
 }
