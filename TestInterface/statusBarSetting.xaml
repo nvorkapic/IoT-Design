@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="#FF193219" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Width="800">
-        <TextBox x:Name="MaxServiceNr" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="123" VerticalAlignment="Top" Width="125" BorderBrush="White" Background="#FF193219" Foreground="White" SelectionHighlightColor="White" InputScope="Number" Height="93" FontSize="48" GotFocus="maxNr_GotFocus" TextChanging="MaxNrChange"/>
+        <TextBox x:Name="MaxServiceNr" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="123" VerticalAlignment="Top" Width="125" BorderBrush="White" Background="#FF193219" Foreground="White" SelectionHighlightColor="White" InputScope="Number" Height="93" FontSize="48" GotFocus="maxNr_GotFocus" LostFocus="parseCheckMaxNR"/>
         <TextBlock x:Name="labelMaxNr" HorizontalAlignment="Left" Margin="140,10,0,0" TextWrapping="Wrap" Text="Maximum Number Before Service" VerticalAlignment="Top" Height="93" SelectionHighlightColor="{x:Null}" Foreground="White" Width="242" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" Text="After entering change of maximum numbers you will be required to submit a note as Service was triggered." VerticalAlignment="Top" Foreground="White" SelectionHighlightColor="{x:Null}" Width="372" Height="52"/>
         <TextBox x:Name="textBoxNote" HorizontalAlignment="Left" Height="150" Margin="387,10,0,0" TextWrapping="Wrap" Text="Enter your note here." VerticalAlignment="Top" Width="403" Foreground="White" BorderBrush="White" Background="{x:Null}" GotFocus="NoteGotFocus" />

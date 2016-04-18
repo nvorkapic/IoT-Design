@@ -49,5 +49,21 @@ namespace TestInterface
         {
             textBoxNote.Text = "";
         }
+
+        private void parseCheckMaxNR(object sender, RoutedEventArgs e)
+        {
+            int broj;
+            if(!int.TryParse(MaxServiceNr.Text,out broj))
+            {
+                MaxServiceNr.Text = "";
+                MaxServiceNr.Focus(FocusState.Keyboard);
+
+            }
+            else
+            {
+                MaxServiceNr.Text = broj.ToString();
+            }
+            
+        }
     }
 }
