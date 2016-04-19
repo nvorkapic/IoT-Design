@@ -59,11 +59,16 @@ namespace TestInterface
                 MaxServiceNr.Focus(FocusState.Keyboard);
 
             }
+            else if (broj > 9999 || broj <= 0)
+            {
+                MaxServiceNr.Text = "";
+                MaxServiceNr.Focus(FocusState.Keyboard);
+            }
             else
             {
                 MaxServiceNr.Text = broj.ToString();
             }
-            
+
         }
     }
 }
