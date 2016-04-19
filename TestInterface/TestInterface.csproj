@@ -117,6 +117,7 @@
     <Compile Include="statusBarSetting.xaml.cs">
       <DependentUpon>statusBarSetting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TemperatureControl\TempControl.cs" />
     <Compile Include="TemperaturePage.xaml.cs">
       <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
