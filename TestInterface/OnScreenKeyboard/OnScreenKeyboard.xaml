@@ -148,7 +148,7 @@
             <Button Name="btnVK_L" IsTabStop="False" Content="{Binding KB.KeyVK_L.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="9" BorderBrush="White" Foreground="White" Background="#FF193219"/>
             <Button Name="btnVK_Oem1" IsTabStop="False" Content="{Binding KB.KeyVK_Oem1.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="10" Background="#FF193219" BorderBrush="White" Foreground="White"/>
             <Button Name="btnVK_Oem7" IsTabStop="False" Content="{Binding KB.KeyVK_Oem7.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="11" Foreground="White" BorderBrush="White" Background="#FF193219"/>
-            <Button Name="btnEnter" IsTabStop="False" Content="-&gt;" FontFamily="Symbol" FontSize="32" FontWeight="Bold" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding EnterKey.Text}" Grid.Column="12" Background="#FF193219" BorderBrush="White" Foreground="White" />
+            <Button Name="btnEnter" IsTabStop="False" Content="⇒" FontFamily="Arial" FontSize="32" FontWeight="Bold" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding EnterKey.Text}" Grid.Column="12" Background="#FF193219" BorderBrush="White" Foreground="White" />
         </Grid>
         <!-- The 4th row, bottom-most keys (KeysRow4) -->
         <Grid Grid.Row="3">
