@@ -6,9 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
-    xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
-    xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
-    xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
     x:Class="TestInterface.TemperaturePage"
 
     mc:Ignorable="d">
@@ -18,17 +15,16 @@
         <Button x:Name="btnDisplayGraph" Content="Display Graph [Day / Month / Year]]" Margin="264,10,0,0" VerticalAlignment="Top" Width="272" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
         <Button x:Name="btnMUnit" Content="Measurement Unit [°C / °F / K] " Margin="536,10,0,0" VerticalAlignment="Top" Width="254" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnMUnit_Click" />
         <Button x:Name="btnBACK" Content="Return" Margin="10,370,0,0" VerticalAlignment="Top" Width="122" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnBACK_Click"/>
-        <Button x:Name="btnCurrentTemp" Content="Current Temperature [[-]00.00 °C]" Margin="10,10,0,0" VerticalAlignment="Top" Width="254" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
-        <Rectangle x:Name="DiagramBig" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="460" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="780" Visibility="Collapsed" DoubleTapped="DiagramBig_DoubleTapped"/>
-
+        <Button x:Name="btnCurrentTemp" Content="Initializing Temperature Reading" Margin="10,10,0,0" VerticalAlignment="Top" Width="254" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
         <StackPanel >
             <Charting:Chart x:Name="LineChart" Height="421" Margin="138,55,18,0" BorderBrush="White" Foreground="White" Loaded="chartOnLoad">
 
-                <Charting:ColumnSeries Title="" Margin="0" IndependentValuePath="DTReading" DependentValuePath="Temperature" IsSelectionEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" >
-                    <Charting:ColumnSeries.TransitionEasingFunction>
-                        <ElasticEase EasingMode="EaseInOut"/>
-                    </Charting:ColumnSeries.TransitionEasingFunction>
-                </Charting:ColumnSeries>
+                <Charting:LineSeries Title="" Margin="0" IndependentValuePath="DTReading" DependentValuePath="Temperature" IsSelectionEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" >
+                    <Charting:LineSeries.TransitionEasingFunction>
+                        <BounceEase EasingMode="EaseInOut"/>
+                        
+                    </Charting:LineSeries.TransitionEasingFunction>
+                </Charting:LineSeries>
                 <Charting:Chart.Palette>
                     <Charting:ResourceDictionaryCollection>
                         <!-- Red -->

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestInterface.TemperatureControl;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -22,6 +24,14 @@ namespace TestInterface
     /// </summary>
     sealed partial class App : Application
     {
+        
+ 
+        public DispatcherTimer TempTimer = new DispatcherTimer();
+        private HTS221 sensor = new HTS221();
+
+        public delegate void SensorCallback(float temp);
+        public SensorCallback TempCallbacks;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -30,7 +40,34 @@ namespace TestInterface
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            TempTimer.Interval = TimeSpan.FromMilliseconds(1000);
+            TempTimer.Tick += TempTimer_Tick;
+            sensor.Init();
+            TempTimer.Start();
+         
         }
+
+        private void TempTimer_Tick(object sender, object e)
+        {
+            TempCallbacks.Invoke(sensor.ReadTemperature());
+
+            //if (norDecTempVal.Count >= 30)
+            //{
+            //    norDecTempVal.Dequeue();
+
+            //}
+
+            //norDecTempVal.Enqueue(sensor.ReadTemperature());
+
+            //foreach (var item in norDecTempVal)
+            //{
+            //    DecTempVal.Add(item);
+            //}
+            
+        }
+
+
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

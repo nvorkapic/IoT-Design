@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,9 +28,28 @@ namespace TestInterface
     /// </summary>
     public sealed partial class TemperaturePage : Page
     {
+        private Queue<TempControl> TempNdTime = new Queue<TempControl>();
         public TemperaturePage()
         {
             this.InitializeComponent();
+            LineChart.LegendItems.Clear();
+            (Application.Current as TestInterface.App).TempCallbacks += TempCallback;
+            
+
+        }
+
+        private void TempCallback(float temp)
+        {
+            btnCurrentTemp.Content = string.Format("Temperature: {0:f2} °C", temp);
+
+            if (TempNdTime.Count >= 15)
+            {
+                TempNdTime.Dequeue();
+
+            }
+            TempNdTime.Enqueue(new TempControl { Temperature = double.Parse(temp.ToString()), DTReading =DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00") });
+
+            (LineChart.Series[0] as LineSeries).ItemsSource = TempNdTime.ToList();
         }
 
         private void btnBACK_Click(object sender, RoutedEventArgs e)
@@ -36,24 +57,9 @@ namespace TestInterface
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        private void RectangleDiagram_DoubleTapped (object sender, RoutedEventArgs e)
-        {
-            DiagramBig.Visibility = Visibility.Visible;            
-        }
-
-        private void DiagramBig_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            DiagramBig.Visibility = Visibility.Collapsed;
-        }
-
         private void chartOnLoad(object sender, RoutedEventArgs e)
         {
-            TempControl Init = new TempControl();
-            List<TempControl> DataList = new List<TempControl>();
-            DataList = Init.CreateTempC();
-
-            (LineChart.Series[0] as ColumnSeries).ItemsSource = DataList;
-            LineChart.LegendItems.Clear();
+            
         }
 
         private void btnMUnit_Click(object sender, RoutedEventArgs e)

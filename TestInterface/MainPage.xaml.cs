@@ -12,7 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using TestInterface.TemperatureControl;
+using System.Collections.ObjectModel;
+using System.ServiceModel.Channels;
+using static System.Collections.Specialized.BitVector32;
+using System.Threading.Tasks;
+using System.Threading;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace TestInterface
@@ -22,9 +27,19 @@ namespace TestInterface
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        
+        
         public MainPage()
         {
             this.InitializeComponent();
+
+
+            (Application.Current as TestInterface.App).TempCallbacks += TempCallBack ;
+        }
+
+        private void TempCallBack(float temp)
+        {
+            btnTemp.Content = string.Format("Temperature: {0:f2} °C", temp);
         }
 
         private void btnTemp_Click(object sender, RoutedEventArgs e)
@@ -35,6 +50,7 @@ namespace TestInterface
         private void btnPressure_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(PressurePage), null);
+            
         }
 
         private void btnHumidity_Click(object sender, RoutedEventArgs e)
