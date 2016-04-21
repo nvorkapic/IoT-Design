@@ -36,5 +36,15 @@ namespace TestInterface
         {
             this.Frame.Navigate(typeof(statusBarSetting), null);
         }
+
+        private void onLoadCatchCurrUsage(object sender, RoutedEventArgs e)
+        {
+            btnCurrUsage.Content = "Current Usage Calls: " + (Application.Current as TestInterface.App).currentNrofServiceCalls + " out of " + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
+        }
+
+        private void onLoadList(object sender, RoutedEventArgs e)
+        {
+            ListViewTest.ItemsSource = (Application.Current as TestInterface.App).ReportForMain;
+        }
     }
 }

@@ -10,9 +10,30 @@
     <Grid Background="#FF193219" Height="480" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800">
         <TextBlock x:Name="textBlockTitle" Height="100" Margin="348,35,10,0" TextWrapping="Wrap" Text="IDUN" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="78" TextAlignment="Center" CharacterSpacing="300" SelectionHighlightColor="White"/>
         <Button x:Name="btnBACK" Content="Return" Margin="10,370,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnBACK_Click"/>
-        <TextBox x:Name="textBoxList" HorizontalAlignment="Left" Height="225" Margin="10,140,0,0" TextWrapping="Wrap" Text="[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]&#xD;&#xA;[___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________][___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________][___ID___][DateOfMaintenance][MaxStatusNr][Note___________________________________________________________________]" VerticalAlignment="Top" Width="780" Background="#FF193219" Foreground="White" SelectionHighlightColor="Black" BorderBrush="White" IsReadOnly="True" />
         <Button x:Name="btnSetNrOfRuns" Content="Settings" Margin="480,370,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnSetNrOfRuns_Click"/>
-        <Button x:Name="btnCurrUsage" Content="Current Usage Number: [0000/0000]" Margin="10,35,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
+        <Button x:Name="btnCurrUsage" Content="Catching Current Usage Number" Margin="10,35,0,0" VerticalAlignment="Top" Width="310" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Loaded="onLoadCatchCurrUsage"/>
+        <ListView Name="ListViewTest" HorizontalAlignment="Right" Width="780" Height="225" VerticalAlignment="Top" Foreground="White" Margin="0,140,10,0" Loaded="onLoadList" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="Auto" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
+                        <TextBlock Grid.Column="0" Text="{Binding DTofServiceCall}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                        <TextBlock Grid.Column="1" Text="{Binding MaxNr}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                        <TextBlock Grid.Column="2" Text="{Binding SCPressure}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                        <TextBlock Grid.Column="3" Text="{Binding SCTemperature}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                        <TextBlock Grid.Column="4" Text="{Binding SCHumidity}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                        <TextBlock Grid.Column="5" Text="{Binding Note}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="18"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

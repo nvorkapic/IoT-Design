@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestInterface.Report;
 using TestInterface.SensorControl;
 using TestInterface.TemperatureControl;
 using Windows.ApplicationModel;
@@ -25,8 +26,11 @@ namespace TestInterface
     /// </summary>
     sealed partial class App : Application
     {
-        
- 
+        public int MaxNrBfrMaintenance;
+        public int currentNrofServiceCalls;
+
+        public ObservableCollection<ReportList> ReportForMain = new ObservableCollection<ReportList>();
+
         public DispatcherTimer TempTimer = new DispatcherTimer();
         private HTS221 sensor = new HTS221();
         private LPS25H pressureSense = new LPS25H();
@@ -54,7 +58,10 @@ namespace TestInterface
             sensor.Init();
             pressureSense.Init();
             TempTimer.Start();
-         
+            MaxNrBfrMaintenance = 1;
+            currentNrofServiceCalls = 0;
+
+           
         }
 
         private void TempTimer_Tick(object sender, object e)
