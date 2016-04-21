@@ -34,7 +34,19 @@ namespace TestInterface
             this.InitializeComponent();
 
 
-            (Application.Current as TestInterface.App).TempCallbacks += TempCallBack ;
+            (Application.Current as TestInterface.App).TempCallbacks += TempCallBack;
+            (Application.Current as TestInterface.App).PressureCallbacks += PressureCallBack;
+            (Application.Current as TestInterface.App).HumidityCallbacks += HumidityCallBack;
+        }
+
+        private void HumidityCallBack(float humi)
+        {
+            btnHumidity.Content=String.Format("Relative Humidity: {0:f2} %",humi);
+        }
+
+        private void PressureCallBack(float press)
+        {
+            btnPressure.Content=String.Format("Pressure: {0} hPa", press);
         }
 
         private void TempCallBack(float temp)

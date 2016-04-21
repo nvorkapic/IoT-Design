@@ -29,12 +29,13 @@ namespace TestInterface
     public sealed partial class TemperaturePage : Page
     {
         private Queue<TempControl> TempNdTime = new Queue<TempControl>();
+        
         public TemperaturePage()
         {
             this.InitializeComponent();
-            LineChart.LegendItems.Clear();
+            TempChart.LegendItems.Clear();
+
             (Application.Current as TestInterface.App).TempCallbacks += TempCallback;
-            
 
         }
 
@@ -42,6 +43,7 @@ namespace TestInterface
         {
             btnCurrentTemp.Content = string.Format("Temperature: {0:f2} °C", temp);
 
+           
             if (TempNdTime.Count >= 15)
             {
                 TempNdTime.Dequeue();
@@ -49,7 +51,7 @@ namespace TestInterface
             }
             TempNdTime.Enqueue(new TempControl { Temperature = double.Parse(temp.ToString()), DTReading =DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00") });
 
-            (LineChart.Series[0] as LineSeries).ItemsSource = TempNdTime.ToList();
+            (TempChart.Series[0] as LineSeries).ItemsSource = TempNdTime.ToList();
         }
 
         private void btnBACK_Click(object sender, RoutedEventArgs e)
@@ -57,15 +59,6 @@ namespace TestInterface
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        private void chartOnLoad(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void btnMUnit_Click(object sender, RoutedEventArgs e)
-        {
-                   
-        }
 
         //private void buttonLoadTemp_Click(object sender, RoutedEventArgs e)
         //{

@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HumidityControl\HumControl.cs" />
     <Compile Include="HumidityPage.xaml.cs">
       <DependentUpon>HumidityPage.xaml</DependentUpon>
     </Compile>
@@ -107,6 +108,7 @@
     <Compile Include="OnScreenKeyboard\OnScreenKeyboard.xaml.cs" />
     <Compile Include="OnScreenKeyboard\RelayCommand.cs" />
     <Compile Include="OnScreenKeyboard\ViewModel.cs" />
+    <Compile Include="PressureControl\PressControl.cs" />
     <Compile Include="PressurePage.xaml.cs">
       <DependentUpon>PressurePage.xaml</DependentUpon>
     </Compile>
@@ -118,7 +120,7 @@
       <DependentUpon>statusBarSetting.xaml</DependentUpon>
     </Compile>
     <Compile Include="TemperatureControl\TempControl.cs" />
-    <Compile Include="TemperatureControl\TempRead.cs" />
+    <Compile Include="SensorControl\SensorRead.cs" />
     <Compile Include="TemperaturePage.xaml.cs">
       <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
@@ -186,6 +188,7 @@
       <Name>Windows IoT Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

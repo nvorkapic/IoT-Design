@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestInterface.SensorControl;
 using TestInterface.TemperatureControl;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -28,9 +29,16 @@ namespace TestInterface
  
         public DispatcherTimer TempTimer = new DispatcherTimer();
         private HTS221 sensor = new HTS221();
+        private LPS25H pressureSense = new LPS25H();
 
-        public delegate void SensorCallback(float temp);
-        public SensorCallback TempCallbacks;
+        public delegate void SensorCallbackTemp(float temp);
+        public SensorCallbackTemp TempCallbacks;
+
+        public delegate void SensorCallbackPress(float press);
+        public SensorCallbackPress PressureCallbacks;
+
+        public delegate void SensorCallbackHum(float humi);
+        public SensorCallbackHum HumidityCallbacks;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -44,27 +52,18 @@ namespace TestInterface
             TempTimer.Interval = TimeSpan.FromMilliseconds(1000);
             TempTimer.Tick += TempTimer_Tick;
             sensor.Init();
+            pressureSense.Init();
             TempTimer.Start();
          
         }
 
         private void TempTimer_Tick(object sender, object e)
-        {
+        { 
             TempCallbacks.Invoke(sensor.ReadTemperature());
+            PressureCallbacks.Invoke(pressureSense.ReadPressure()); 
+            HumidityCallbacks.Invoke(sensor.ReadHumidity());
 
-            //if (norDecTempVal.Count >= 30)
-            //{
-            //    norDecTempVal.Dequeue();
 
-            //}
-
-            //norDecTempVal.Enqueue(sensor.ReadTemperature());
-
-            //foreach (var item in norDecTempVal)
-            //{
-            //    DecTempVal.Add(item);
-            //}
-            
         }
 
 
