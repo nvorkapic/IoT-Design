@@ -52,8 +52,8 @@ namespace TestInterface
 
         private void PressureCallBack(float press)
         {
-            btnPressure.Content=String.Format("Pressure: {0} hPa ", press);
-            RPres = String.Format(" Pressure: {0} hPa |", press);
+            btnPressure.Content=String.Format("Pressure: {0:f2} hPa ", press);
+            RPres = String.Format(" Pressure: {0:f2} hPa |", press);
         }
 
         private void TempCallBack(float temp)

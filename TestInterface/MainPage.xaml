@@ -93,10 +93,10 @@
             </ProgressBar.Foreground>
         </ProgressBar>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="35" Margin="10,130,0,0" TextWrapping="Wrap" Text="Service Calls" VerticalAlignment="Top" Width="525" Foreground="White" FontSize="22" FontWeight="Bold" SelectionHighlightColor="{x:Null}" TextAlignment="Center"/>
-        <ListView Name="ListViewTest" HorizontalAlignment="Right" Width="525" Height="275" VerticalAlignment="Top" Foreground="White" Margin="0,170,265,0" Loaded="onLoadList" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
+        <ListView Name="ListViewTest" HorizontalAlignment="Center" Width="450" Height="275" VerticalAlignment="Top" Foreground="White" Margin="58,170,293,0" Loaded="onLoadList" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Width="Auto" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
+                <DataTemplate >
+                    <Grid Width="Auto" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.ZoomMode="Enabled" BorderThickness="0,1,0,1" BorderBrush="White" FlowDirection="LeftToRight" Padding="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
