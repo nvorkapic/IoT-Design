@@ -46,19 +46,20 @@ namespace TestInterface
 
         private void HumidityCallBack(float humi)
         {
-            btnHumidity.Content=String.Format(" Relative Humidity: {0:f2} % ",humi);
+            btnHumidity.Content=String.Format("Relative\nHumidity:\n{0:f2} % ", humi);
             RHumi = String.Format(" Relative Humidity: {0:f2} % |", humi);
         }
 
         private void PressureCallBack(float press)
         {
-            btnPressure.Content=String.Format("Pressure: {0:f2} hPa ", press);
+            btnPressure.Content=String.Format("Pressure:\n{0:f2} hPa ", press);
+            
             RPres = String.Format(" Pressure: {0:f2} hPa |", press);
         }
 
         private void TempCallBack(float temp)
         {
-            btnTemp.Content = string.Format("Temperature: {0:f2} °C", temp);
+            btnTemp.Content = string.Format("Temperature:\n{0:f2} °C", temp);
             RTemp = string.Format(" Temperature: {0:f2} °C |", temp);
         }
 
@@ -101,7 +102,7 @@ namespace TestInterface
                 button.Content = "Service Called " + (Application.Current as TestInterface.App).ReportForMain.Count + " time(s)";
             }
 
-            btnMCounter.Content = "Usage Calls: " + (Application.Current as TestInterface.App).currentNrofServiceCalls + " out of " + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
+            btnMCounter.Content = "Usage Calls:\n" + (Application.Current as TestInterface.App).currentNrofServiceCalls + "\nout of\n" + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
 
             int barMaxint = (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
             double barMax = double.Parse(barMaxint.ToString());
@@ -116,7 +117,7 @@ namespace TestInterface
 
         private void onLoadMCounter(object sender, RoutedEventArgs e)
         {
-            btnMCounter.Content = "Usage Calls: " + (Application.Current as TestInterface.App).currentNrofServiceCalls + " out of " + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
+            btnMCounter.Content = "Usage Calls:\n" + (Application.Current as TestInterface.App).currentNrofServiceCalls + "\nout of\n" + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
         }
 
         private void barOnLoad(object sender, RoutedEventArgs e)
@@ -138,6 +139,11 @@ namespace TestInterface
         private void button_Loaded(object sender, RoutedEventArgs e)
         {
             button.Content = "Service Called "+(Application.Current as TestInterface.App).ReportForMain.Count+" time(s)";
+        }
+
+        private void btnAAS_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AdditionalApps), null);
         }
     }
 

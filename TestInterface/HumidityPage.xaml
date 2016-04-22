@@ -9,13 +9,54 @@
     x:Class="TestInterface.HumidityPage"
     mc:Ignorable="d">
 
-    <Grid Background="#FF193219" Height="480" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800">
-        <Button x:Name="btnDisplayGraph" Content="Display Graph [Day / Month / Year]]" Margin="264,11,0,0" VerticalAlignment="Top" Width="272" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
-        <Button x:Name="btnMUnit" Content="Measurement Unit [% abs / rel] " Margin="536,11,0,0" VerticalAlignment="Top" Width="254" Height="40" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" />
-        <Button x:Name="btnBACK" Content="Return" Margin="10,370,0,0" VerticalAlignment="Top" Width="122" Height="100" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnBACK_Click"/>
-        <Button x:Name="btnCurrentHumi" Content="Initializing Humidity Reading" Margin="10,10,0,0" VerticalAlignment="Top" Width="254" Height="41" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White"/>
-        <StackPanel >
-            <Charting:Chart x:Name="HumChart" Height="421" Margin="138,55,18,0" BorderBrush="White" Foreground="White">
+    <Grid Background="Black" Height="480" VerticalAlignment="Top" HorizontalAlignment="Left" Width="800">
+        <Button x:Name="btnDisplayGraph" Margin="240,344,0,0" VerticalAlignment="Top" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="{x:Null}">
+            <TextBlock TextWrapping="Wrap" Text="Display Graph" FontSize="14"/>
+        </Button>
+        <Button x:Name="btnMUnit" Margin="125,344,0,0" VerticalAlignment="Top" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="{x:Null}">
+            <TextBlock TextWrapping="Wrap" Margin="-3,-10,-2,-12" Text="Measurement Unit" FontSize="14"/>
+        </Button>
+        <Button x:Name="btnBACK" Content="Return" Margin="680,345,0,0" VerticalAlignment="Top" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="{x:Null}" Click="btnBACK_Click" FontSize="14"/>
+        <Button x:Name="btnCurrentHumi" Margin="10,345,0,0" VerticalAlignment="Top" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="{x:Null}">
+            <TextBlock TextWrapping="Wrap" FontSize="14">Initializing Humidity Reading</TextBlock>
+        </Button>
+        <StackPanel Margin="0,2,0,0" >
+            <Charting:Chart x:Name="HumChart" Height="310" Margin="10,10,10,0" BorderBrush="White" Foreground="White">
+
+                <Charting:Chart.Palette>
+                    <Charting:ResourceDictionaryCollection>
+                        <!-- Red -->
+                        <ResourceDictionary>
+                            <SolidColorBrush
+        						x:Key="Background"
+        						Color="#FFFFFFFF" />
+                            <Style
+        						x:Key="DataPointStyle"
+        						TargetType="Control">
+                                <Setter
+        							Property="Background"
+        							Value="{StaticResource Background}" />
+                            </Style>
+                            <Style
+        						x:Key="DataShapeStyle"
+        						TargetType="Shape">
+                                <Setter
+        							Property="Stroke"
+        							Value="{StaticResource Background}" />
+                                <Setter
+        							Property="StrokeThickness"
+        							Value="2" />
+                                <Setter
+        							Property="StrokeMiterLimit"
+        							Value="1" />
+                                <Setter
+        							Property="Fill"
+        							Value="{StaticResource Background}" />
+                            </Style>
+
+                        </ResourceDictionary>
+                    </Charting:ResourceDictionaryCollection>
+                </Charting:Chart.Palette>
 
                 <Charting:LineSeries Title="" Margin="0" IndependentValuePath="DTReading" DependentValuePath="Humidity" IsSelectionEnabled="False" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" >
                     <Charting:LineSeries.TransitionEasingFunction>
@@ -23,40 +64,6 @@
 
                     </Charting:LineSeries.TransitionEasingFunction>
                 </Charting:LineSeries>
-                <Charting:Chart.Palette>
-                    <Charting:ResourceDictionaryCollection>
-                        <!-- Red -->
-                        <ResourceDictionary>
-                            <SolidColorBrush
-            x:Key="Background"
-            Color="#FFFFFFFF" />
-                            <Style
-            x:Key="DataPointStyle"
-            TargetType="Control">
-                                <Setter
-                Property="Background"
-                Value="{StaticResource Background}" />
-                            </Style>
-                            <Style
-            x:Key="DataShapeStyle"
-            TargetType="Shape">
-                                <Setter
-                Property="Stroke"
-                Value="{StaticResource Background}" />
-                                <Setter
-                Property="StrokeThickness"
-                Value="2" />
-                                <Setter
-                Property="StrokeMiterLimit"
-                Value="1" />
-                                <Setter
-                Property="Fill"
-                Value="{StaticResource Background}" />
-                            </Style>
-
-                        </ResourceDictionary>
-                    </Charting:ResourceDictionaryCollection>
-                </Charting:Chart.Palette>
             </Charting:Chart>
         </StackPanel>
     </Grid>

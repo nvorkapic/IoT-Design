@@ -29,11 +29,16 @@ namespace TestInterface
     public sealed partial class TemperaturePage : Page
     {
         private Queue<TempControl> TempNdTime = new Queue<TempControl>();
-        
+        private string TempUnit;
+        public double ConvertedTemp;
+
+
         public TemperaturePage()
         {
             this.InitializeComponent();
             TempChart.LegendItems.Clear();
+
+            TempUnit = "°C";
 
             (Application.Current as TestInterface.App).TempCallbacks += TempCallback;
 
@@ -41,15 +46,15 @@ namespace TestInterface
 
         private void TempCallback(float temp)
         {
-            btnCurrentTemp.Content = string.Format("Temperature: {0:f2} °C", temp);
+           ConvertedTemp = temp;
+           btnCurrentTemp.Content = string.Format("Temperature:\n{0:f2} °C", ConvertedTemp);
 
-           
             if (TempNdTime.Count >= 15)
             {
                 TempNdTime.Dequeue();
 
             }
-            TempNdTime.Enqueue(new TempControl { Temperature = double.Parse(temp.ToString()), DTReading =DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00") });
+            TempNdTime.Enqueue(new TempControl { Temperature = ConvertedTemp, DTReading =DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00") });
 
             (TempChart.Series[0] as LineSeries).ItemsSource = TempNdTime.ToList();
         }
@@ -58,6 +63,12 @@ namespace TestInterface
         {
             this.Frame.Navigate(typeof(MainPage), null);
         }
+
+        private void onLoadMUnitBtn(object sender, RoutedEventArgs e)
+        {
+            btnMUnit.Content = "Measuring\nUnit:\n" + TempUnit;
+        }
+
 
 
         //private void buttonLoadTemp_Click(object sender, RoutedEventArgs e)

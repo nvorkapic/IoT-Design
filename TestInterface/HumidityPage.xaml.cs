@@ -36,7 +36,7 @@ namespace TestInterface
 
         private void HumidityCallBack(float humi)
         {
-            btnCurrentHumi.Content = String.Format("Relative Humidity: {0:f2} %", humi);
+            btnCurrentHumi.Content = String.Format("Relative\nHumidity:\n{0:f2} %", humi);
 
             if (HumNdTime.Count >= 15)
             {

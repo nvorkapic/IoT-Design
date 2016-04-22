@@ -36,7 +36,7 @@ namespace TestInterface
 
         private void PressureCallBack(float press)
         {
-            btnCurrentPress.Content = String.Format("Pressure: {0:f2} hPa", press);
+            btnCurrentPress.Content = String.Format("Pressure:\n{0:f2} hPa", press);
 
             if (PressNdTime.Count >= 15)
             {

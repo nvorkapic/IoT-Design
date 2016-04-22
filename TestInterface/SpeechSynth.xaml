@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="TestInterface.SpeechSynth"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestInterface"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oks="using:OnScreenKeyboard"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <oks:OnScreenKeyBoard x:Name="keyboard" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="210" Margin="4,0,4,-39" Width="792" />
+        <TextBox x:Name="textBoxRead" HorizontalAlignment="Left" Height="298" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter your text here." VerticalAlignment="Top" Width="472" Background="#FF68217A" BorderBrush="{x:Null}" Foreground="White" SelectionHighlightColor="#FF60A3E6" FontSize="25" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False"/>
+        <Button x:Name="btnRead" Content="Read Text" Margin="485,211,0,224" VerticalAlignment="Stretch" Width="150" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnRead_Click" Height="45"/>
+        <Button x:Name="btnToMainMenu" Content="To Main Page" Margin="640,261,0,174" VerticalAlignment="Stretch" Width="150" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnToMainMenu_Click"/>
+        <Button x:Name="btnBack" Content="Back" Margin="640,211,0,224" VerticalAlignment="Stretch" Width="150" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnBack_Click"/>
+        <Button x:Name="btnClear" Content="Clear Text" Margin="485,261,0,174" VerticalAlignment="Stretch" Width="150" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnClear_Click" Height="45"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="196" Margin="485,10,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="onSelectChange" RenderTransformOrigin="2,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" Background="#FF68217A" Foreground="Black" BorderBrush="White">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" ></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Page>

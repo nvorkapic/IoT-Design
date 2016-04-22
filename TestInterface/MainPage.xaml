@@ -78,13 +78,23 @@
             </Setter>
         </Style>
     </Page.Resources>
-    <Grid Background="#FF193219" Height="480" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="800">
-        <Button x:Name="btnPressure" Content="Initializing Pressure Reading" Margin="540,45,0,400" VerticalAlignment="Stretch" Width="250" Foreground="White" Background="#FF193219" FontWeight="Bold" BorderBrush="White" Click="btnPressure_Click"/>
-        <Button x:Name="btnTemp" Content="Initializing Temperature Reading" Margin="540,80,0,365" VerticalAlignment="Stretch" Width="250" Foreground="White" Background="#FF193219" FontWeight="Bold" BorderBrush="White" Click="btnTemp_Click"/>
-        <Button x:Name="btnHumidity" Content="Initializing Humidity Reading" Margin="540,10,0,435" VerticalAlignment="Stretch" Width="250" Foreground="White" Background="#FF193219" FontWeight="Bold" BorderBrush="White" Click="btnHumidity_Click"/>
-        <Button x:Name="btnStatus" Margin="540,0,0,140" VerticalAlignment="Bottom" Width="250" Height="105" Foreground="White" Background="#FF193219" FontWeight="Bold" BorderBrush="White" Click="btnStatus_Click" Content="Status Control"/>
-        <Button x:Name="btnMCounter" Content="Initializing Usage Control" Margin="540,120,0,0" VerticalAlignment="Top" Width="250" Height="110" Foreground="White" Background="#FF193219" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="White" Click="btnMCounter_Click" Loaded="onLoadMCounter"/>
-        <ProgressBar x:Name="ProgBarforStatus" HorizontalAlignment="Left" Height="50" Margin="540,395,0,0" VerticalAlignment="Top" Width="250" Value="42" BorderBrush="White" Loaded="barOnLoad">
+    <Grid Background="Black" Height="480" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="800">
+        <Button x:Name="btnPressure" Margin="565,140,0,215" VerticalAlignment="Stretch" Width="110" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnPressure_Click" Height="125">
+            <TextBlock TextWrapping="Wrap">Initializing Pressure Reading</TextBlock>
+        </Button>
+        <Button x:Name="btnTemp" Margin="680,10,0,345" VerticalAlignment="Stretch" Width="110" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnTemp_Click" Height="125">
+            <TextBlock TextWrapping="Wrap">Initializing Temperature Reading</TextBlock>
+        </Button>
+        <Button x:Name="btnHumidity" Margin="565,10,0,345" VerticalAlignment="Stretch" Width="110" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnHumidity_Click" Height="125">
+            <TextBlock TextWrapping="Wrap">Initializing Humidity Reading</TextBlock>
+        </Button>
+        <Button x:Name="btnStatus" Margin="565,0,0,9" VerticalAlignment="Bottom" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" BorderBrush="{x:Null}" Click="btnStatus_Click">
+            <TextBlock TextWrapping="Wrap">Report Control and Status</TextBlock>
+        </Button>
+        <Button x:Name="btnMCounter" Margin="680,140,0,0" VerticalAlignment="Top" Width="110" Height="125" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False" BorderBrush="{x:Null}" Click="btnMCounter_Click" Loaded="onLoadMCounter">
+            <TextBlock TextWrapping="Wrap">Initializing Usage Control</TextBlock>
+        </Button>
+        <ProgressBar x:Name="ProgBarforStatus" HorizontalAlignment="Left" Height="50" Margin="275,420,0,0" VerticalAlignment="Top" Width="260" Value="42" BorderBrush="#FF68217A" Loaded="barOnLoad" Background="#FF68217A">
             <ProgressBar.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -92,25 +102,28 @@
                 </LinearGradientBrush>
             </ProgressBar.Foreground>
         </ProgressBar>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="35" Margin="10,130,0,0" TextWrapping="Wrap" Text="Service Calls" VerticalAlignment="Top" Width="525" Foreground="White" FontSize="22" FontWeight="Bold" SelectionHighlightColor="{x:Null}" TextAlignment="Center"/>
-        <ListView Name="ListViewTest" HorizontalAlignment="Center" Width="450" Height="275" VerticalAlignment="Top" Foreground="White" Margin="58,170,293,0" Loaded="onLoadList" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.ZoomMode="Enabled">
+        <ListView Name="ListViewTest" HorizontalAlignment="Center" Width="525" Height="220" VerticalAlignment="Top" Foreground="White" Margin="10,195,265,0" Loaded="onLoadList" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.ZoomMode="Enabled" SelectionMode="None" IsSwipeEnabled="False" HorizontalContentAlignment="Stretch" IsMultiSelectCheckBoxEnabled="False">
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <Grid Width="Auto" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.ZoomMode="Enabled" BorderThickness="0,1,0,1" BorderBrush="White" FlowDirection="LeftToRight" Padding="1">
+                    <Grid Width="Auto" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.IsHorizontalRailEnabled="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.ZoomMode="Enabled" FlowDirection="LeftToRight" Padding="1" BorderThickness="0,1,0,1" BorderBrush="White">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto"/>
 
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding DTofServiceCall}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="15"/>
-                        <TextBlock Grid.Column="1" Text="{Binding MaxNr}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="15"/>
+                        <TextBlock Grid.Column="0" Text="{Binding DTofServiceCall}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="15" Grid.Row="0"/>
+                        <TextBlock Grid.Column="1" Text="{Binding MaxNr}" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="15" Grid.Row="1"/>
 
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="115" Margin="10,10,0,0" TextWrapping="Wrap" Text="I D U N" VerticalAlignment="Top" Width="525" Foreground="White" SelectionHighlightColor="{x:Null}" FontSize="100" TextAlignment="Center"/>
-        <Button x:Name="button" Content="Catching Service Calls" HorizontalAlignment="Left" Height="50" Margin="540,340,0,0" VerticalAlignment="Top" Width="250" Foreground="White" Background="{x:Null}" BorderBrush="White" FontWeight="Bold" Loaded="button_Loaded"/>
+        <TextBlock x:Name="textBlock1" Text="IDUN" HorizontalAlignment="Left" Height="145" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="525" Foreground="White" SelectionHighlightColor="{x:Null}" TextAlignment="Center" FontSize="120" FontWeight="Bold" CharacterSpacing="406"></TextBlock>
+        <Button x:Name="button" Content="Catching Service Calls" HorizontalAlignment="Left" Height="50" Margin="10,420,0,0" VerticalAlignment="Top" Width="260" Foreground="White" Background="#FF68217A" BorderBrush="{x:Null}" FontWeight="Bold" Loaded="button_Loaded"/>
+        <Button x:Name="btnAAS" HorizontalAlignment="Left" Height="125" Margin="680,346,0,0" VerticalAlignment="Top" Width="110" Background="#FF68217A" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold" Click="btnAAS_Click" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsRightTapEnabled="False">
+            <TextBlock TextWrapping="Wrap">Additional Applications Access</TextBlock>
+        </Button>
+        <Button x:Name="button1" Content="Service Calls" HorizontalAlignment="Left" Height="35" Margin="10,160,0,0" VerticalAlignment="Top" Width="525" Foreground="White" Background="#FF68217A" FontWeight="Bold" IsTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False"/>
     </Grid>
 </Page>

@@ -20,31 +20,21 @@ namespace TestInterface
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StatusBar : Page
+    public sealed partial class AdditionalApps : Page
     {
-        public StatusBar()
+        public AdditionalApps()
         {
             this.InitializeComponent();
         }
 
-        private void btnBACK_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        private void btnSetNrOfRuns_Click(object sender, RoutedEventArgs e)
+        private void btnSpeech_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(statusBarSetting), null);
-        }
-
-        private void onLoadCatchCurrUsage(object sender, RoutedEventArgs e)
-        {
-            btnCurrUsage.Content = "Current\nUsage\nCalls:\n" + (Application.Current as TestInterface.App).currentNrofServiceCalls + " / " + (Application.Current as TestInterface.App).MaxNrBfrMaintenance;
-        }
-
-        private void onLoadList(object sender, RoutedEventArgs e)
-        {
-            ListViewTest.ItemsSource = (Application.Current as TestInterface.App).ReportForMain;
+            this.Frame.Navigate(typeof(SpeechSynth), null);
         }
     }
 }
