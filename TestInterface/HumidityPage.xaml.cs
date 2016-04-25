@@ -29,8 +29,9 @@ namespace TestInterface
         public HumidityPage()
         {
             this.InitializeComponent();
-
+            //Removing Legend Item from the Chart
             HumChart.LegendItems.Clear();
+            //Callback returns reading value from device through App page
             (Application.Current as TestInterface.App).HumidityCallbacks += HumidityCallBack;
         }
 
@@ -38,6 +39,7 @@ namespace TestInterface
         {
             btnCurrentHumi.Content = String.Format("Relative\nHumidity:\n{0:f2} %", humi);
 
+            //Self-truncating Stack List
             if (HumNdTime.Count >= 15)
             {
                 HumNdTime.Dequeue();

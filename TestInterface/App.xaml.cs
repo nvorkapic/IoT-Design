@@ -53,6 +53,7 @@ namespace TestInterface
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
+            //Timer for reading Sensor Data, standard ticks 1000ms
             TempTimer.Interval = TimeSpan.FromMilliseconds(1000);
             TempTimer.Tick += TempTimer_Tick;
             sensor.Init();
